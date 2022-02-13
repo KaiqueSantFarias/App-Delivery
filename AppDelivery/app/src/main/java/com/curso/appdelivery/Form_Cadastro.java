@@ -53,8 +53,6 @@ public class Form_Cadastro extends AppCompatActivity {
     private String usuarioID;
     private Uri mSelecionarUri;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -184,7 +182,9 @@ public class Form_Cadastro extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Log.i("db_erro","Erro ao salvar os dados." + e.toString());
+
+                                    String foto = uri.toString();
+
                                 }
                             });
 
