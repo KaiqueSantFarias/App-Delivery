@@ -17,11 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Form_Login extends AppCompatActivity {
@@ -108,7 +105,7 @@ public class Form_Login extends AppCompatActivity {
 
 
         public void IniciarTelaProdutos(){
-            Intent intent = new Intent(Form_Login.this, Lista_Produtos.class);
+            Intent intent = new Intent(Form_Login.this, lista_Produtos.class);
             startActivity(intent);
             finish();
         }

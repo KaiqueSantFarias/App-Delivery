@@ -4,8 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/drawable/edit_text_shape.xml" value="0.1915" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/drawable/ic_deslogar.xml" value="0.1915" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/drawable/ic_menu_lateral.xml" value="0.1915" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/drawable/ic_pedidos.xml" value="0.1915" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/drawable/ic_perfil.xml" value="0.1915" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/layout/activity_form_cadastro.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/layout/activity_form_login.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/layout/activity_lista_produtos.xml" value="0.2246376811594203" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/layout/activity_perfil_usuario.xml" value="0.3067708333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/layout/produto_item.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AppDelivery/app/src/main/res/menu/menu_principal.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDelivery">
         <activity
-            android:name=".Lista_Produtos"
+            android:name=".Perfil_Usuario"
+            android:exported="false" />
+        <activity
+            android:name=".lista_Produtos"
             android:exported="false" />
         <activity
             android:name=".Form_Cadastro"
