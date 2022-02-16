@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDelivery">
         <activity
+            android:name=".Detalhes_Produto"
+            android:exported="false" />
+        <activity
             android:name=".Perfil_Usuario"
             android:exported="false" />
         <activity

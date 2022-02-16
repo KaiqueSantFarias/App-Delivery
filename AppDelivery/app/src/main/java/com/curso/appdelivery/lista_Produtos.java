@@ -9,10 +9,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.curso.appdelivery.Adapter.AdapterProduto;
 import com.curso.appdelivery.Model.Produto;
+import com.curso.appdelivery.RecyclerViewItemClickListener.RecyclerViewItemClickListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,6 +44,32 @@ public class lista_Produtos extends AppCompatActivity {
         recyclerView_produtos.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView_produtos.setHasFixedSize(true);
         recyclerView_produtos.setAdapter(adapterProduto);
+
+        // Evento de Click no RecyclerView
+        recyclerView_produtos.addOnItemTouchListener(
+                new RecyclerViewItemClickListener(
+                        getApplicationContext(),
+                        recyclerView_produtos,
+                        new RecyclerViewItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+
+                                Produto produto = produtoList.get(position);
+                                Toast.makeText(getApplicationContext(),produto.getNome(),Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                            }
+                        }
+                )
+        );
 
         db = FirebaseFirestore.getInstance();
 
