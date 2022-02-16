@@ -13,7 +13,12 @@ import android.widget.Toast;
 
 import com.curso.appdelivery.Adapter.AdapterProduto;
 import com.curso.appdelivery.Model.Produto;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +28,7 @@ public class lista_Produtos extends AppCompatActivity {
     private RecyclerView recyclerView_produtos;
     private AdapterProduto adapterProduto;
     private List<Produto> produtoList;
-
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,20 +42,22 @@ public class lista_Produtos extends AppCompatActivity {
         recyclerView_produtos.setHasFixedSize(true);
         recyclerView_produtos.setAdapter(adapterProduto);
 
-        Produto produto1 = new Produto(R.drawable.ic_launcher_background,"Produto 1","R$ 50,00");
-        produtoList.add(produto1);
+        db = FirebaseFirestore.getInstance();
 
-        Produto produto2 = new Produto(R.drawable.ic_launcher_background,"Produto 1","R$ 50,00");
-        produtoList.add(produto2);
-
-        Produto produto3 = new Produto(R.drawable.ic_launcher_background,"Produto 1","R$ 50,00");
-        produtoList.add(produto3);
-
-        Produto produto4 = new Produto(R.drawable.ic_launcher_background,"Produto 1","R$ 50,00");
-        produtoList.add(produto4);
-
-        Produto produto5 = new Produto(R.drawable.ic_launcher_background,"Produto 1","R$ 50,00");
-        produtoList.add(produto5);
+        db.collection("Produtos").orderBy("nome")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()){
+                                Produto produto = queryDocumentSnapshot.toObject(Produto.class);
+                                produtoList.add(produto);
+                                adapterProduto.notifyDataSetChanged();
+                            }
+                        }
+                    }
+                });
 
     }
 
